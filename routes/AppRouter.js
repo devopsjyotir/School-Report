@@ -4,7 +4,7 @@ const CourseRouter = require('./CourseRouter')
 const GradeRouter = require('./GradeRouter')
 const StudentRouter = require('./StudentRouter')
 Router.use('/', AuthRouter)
-Router.use('/course', CourseRouter)
+Router.use('/courses', CourseRouter)
 Router.use('/grades', GradeRouter)
 Router.use('/students', StudentRouter)
 module.exports = Router

@@ -33,12 +33,7 @@ const GetStudentCourses=async(req,res)=>{
 
 const CreateCourse = async (req, res) => {
   try {
-    let student_id=parseInt(req.params.student_id)
-    let courseBody={
-      owner_id,
-      ...req.body
-    }
-      const newCourse = await Course.create(courseBody)
+      const newCourse = await Course.create(req.body)
       res.send(newCourse)
   } catch (error) {
       throw error
