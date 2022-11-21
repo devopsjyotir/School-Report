@@ -32,8 +32,13 @@ School reporting app where teacher/admin can create/update/view their students,c
 
 ***
 
-### Photos
+### Planning
+Wireframe   
+[link](https://www.figma.com/file/sFjDwZ8pAwtRed7PH3ydWY/Wireframe-Kit-(Community)?node-id=12805%3A646&t=ThY4IK6GPmfJGau7-1)   
+![wirefrane](./assets/school-report-wireframe.png)   
+ERD   
 ![entity relationship diagram](./assets/school-report-erd.png)
+CHD   
 ![component hierarchy diagram](./assets/school-report-chd.png)
 
 ***
@@ -45,3 +50,4 @@ Sequelize: [https://sequelize.org/]
 Express: [https://expressjs.com/]   
 React:[https://reactjs.org/]   
 NodeJs: [https://nodejs.org/en/]   
+Redux: [https://redux.js.org/]    
