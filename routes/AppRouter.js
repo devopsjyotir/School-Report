@@ -1,8 +1,10 @@
 const Router = require('express').Router()
 const AuthRouter = require('./AuthRouter')
 const CoursesRouter = require('./CoursesRouter')
-const GradeRouter = require('./GradesRouter')
+const GradesRouter = require('./GradesRouter')
+const StudentsRouter = require('/StudentsRouter')
 Router.use('/', AuthRouter)
 Router.use('/course', CoursesRouter)
-// Router.use('/students', GradeRouter)
+Router.use('/grades', GradesRouter)
+Router.use('/students', StudentsRouter)
 module.exports = Router
