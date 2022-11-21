@@ -22,12 +22,7 @@ const GetStudentDetails = async (req, res) => {
 
 const CreateStudent = async (req, res) => {
   try {
-    let student_id=parseInt(req.params.user_id)
-    let studentBody={
-      student_id,
-      ...req.body
-    }
-      const newStudent = await Student.create(studentBody)
+      const newStudent = await Student.create(req.body)
       res.send(newStudent)
   } catch (error) {
       throw error
