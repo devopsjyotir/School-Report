@@ -8,7 +8,7 @@ module.exports = {
       return {
         userName: falso.randUserName(),
         email: falso.randEmail(),
-        grade: falso.randNumber({min:0,max:4}),
+        averageGrade: falso.randNumber({min:0,max:4}),
         createdAt: new Date(),
         updatedAt: new Date(),
     
