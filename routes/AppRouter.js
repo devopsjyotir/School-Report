@@ -1,10 +1,12 @@
-const Router = require('express').Router()
-const AuthRouter = require('./AuthRouter')
-const CourseRouter = require('./CourseRouter')
-const GradeRouter = require('./GradeRouter')
-const StudentRouter = require('./StudentRouter')
-Router.use('/', AuthRouter)
-Router.use('/courses', CourseRouter)
-Router.use('/grades', GradeRouter)
-Router.use('/students', StudentRouter)
-module.exports = Router
+const Router = require("express").Router();
+const AuthRouter = require("./AuthRouter");
+const CourseRouter = require("./CourseRouter");
+const GradeRouter = require("./GradeRouter");
+const StudentRouter = require("./StudentRouter");
+const StudentsCoursesGradesController = require("./StudentCourseGradeRouter");
+Router.use("/", AuthRouter);
+Router.use("/courses", CourseRouter);
+Router.use("/grades", GradeRouter);
+Router.use("/students", StudentRouter);
+Router.use("/relations", StudentsCoursesGradesController);
+module.exports = Router;
