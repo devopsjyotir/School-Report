@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class StudentsCoursesGrades extends Model {
     /**
@@ -13,35 +11,38 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  StudentsCoursesGrades.init({
-    studentId: {
-      type:DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'student',
-        key: 'id'
+  StudentsCoursesGrades.init(
+    {
+      studentId: {
+        type: DataTypes.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "student",
+          key: "id"
+        }
+      },
+      courseId: {
+        type: DataTypes.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "course",
+          key: "id"
+        }
+      },
+      gradeId: {
+        type: DataTypes.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "grade",
+          key: "id"
+        }
       }
     },
-    courseId: {
-      type:DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'course',
-        key: 'id'
-      }
-    },
-    gradeId: {
-      type:DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'grade',
-        key: 'id'
-      }
+    {
+      sequelize,
+      modelName: "StudentsCoursesGrades",
+      tableName: "studentscoursesgrades"
     }
-  }, {
-    sequelize,
-    modelName: 'StudentsCoursesGrades',
-    tableName: 'studentsCoursesGrades'
-  });
+  );
   return StudentsCoursesGrades;
 };
