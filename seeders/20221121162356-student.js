@@ -6,7 +6,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     const students = [...Array(5)].map((_) => {
       return {
-        userName: falso.randUserName(),
+        name: falso.randFirstName(),
         email: falso.randEmail(),
         averageGrade: falso.randNumber({min:0,max:4}),
         createdAt: new Date(),

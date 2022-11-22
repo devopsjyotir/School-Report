@@ -1,4 +1,5 @@
-const { Student,Course, Grade } = require('../models')
+const { Student,Course, Grade, studentscoursesgrades } = require('../models')
+const studentscoursesgrades = require('../models/studentscoursesgrades')
 
 
 const GetAllStudents = async (req, res) => {
@@ -39,7 +40,8 @@ const GetAllGrades = async (req, res) => {
 const GetStudentCourses=async(req,res)=>{
     try {
       let studentId= parseInt(req.params.student_id);
-      const courses = await Course.findAll({where:{student_id:studentId}})
+      const courses = await studentscoursesgrades.findAll({where:{studentId:studentId}})
+      console.log(courses)
       res.send(courses)
     } catch (error) {
       throw error
