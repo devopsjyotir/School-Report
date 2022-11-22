@@ -20,28 +20,7 @@ const CreateRelations = async (req, res) => {
 
 const GetStudentRelations = async (req, res) => {
   try {
-    let result = [];
     let studentId = parseInt(req.params.student_id);
-    // const studentRelation = await Student.findAll({
-    //   where: {
-    //     id: studentId
-    //   },
-    //   attributes: ["id", "name"],
-    //   include: [
-    //     {
-    //       model: Course,
-    //       as: "course",
-    //       attributes: ["id", "name"],
-    //       include: [
-    //         {
-    //           model: Grade,
-    //           as: "courseGrades"
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // });
-
     const studentRelation = await StudentsCoursesGrades.findAll({
       where: {
         studentId: studentId
@@ -55,8 +34,27 @@ const GetStudentRelations = async (req, res) => {
   }
 };
 
+const GetStudentCourseRelations = async (req, res) => {
+  try {
+    let studentId = parseInt(req.params.student_id);
+    let courseId = parseInt(req.params.course_id);
+    const studentRelation = await StudentsCoursesGrades.findAll({
+      where: {
+        studentId: studentId,
+        courseId: courseId
+      },
+      attributes: ["studentId", "courseId", "gradeId"]
+    });
+
+    res.send(studentRelation);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllRelations,
   CreateRelations,
-  GetStudentRelations
+  GetStudentRelations,
+  GetStudentCourseRelations
 };
